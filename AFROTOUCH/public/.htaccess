@@ -1,0 +1,10 @@
+DirectoryIndex index.php
+
+# Only use FallbackResource for root, not subdirectories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /AFROTOUCH/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

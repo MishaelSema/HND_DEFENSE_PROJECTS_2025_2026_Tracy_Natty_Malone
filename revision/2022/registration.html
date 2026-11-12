@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="message" style="display: none; color: red;"></div>
+    <form id="regForm" method=POST action="register.php">
+        Lastname: <input type="text" name="lastname" required/><br><br>
+        Course: <select name="course" required>
+                    <option value="">Course</option>
+                    <option value="MATHS">
+                        MATHS
+                    </option>
+                    <option value="FRENCH">
+                        FRENCH
+                    </option>
+                </select><br><br>
+        Gender: <br>
+        <input type="radio" name="gender" value="Male"/> Male <br>
+        <input type="radio" name="gender" value="Female"/> Female <br>
+        <input type="radio" name="gender" value="Other"/> Other <br>
+        Phone: <input type="text" maxlength="4" name="countryCode" style="width:50px;" value="+91" />
+                <input type="tel" name="phone" /><br><br>
+                <input type="hidden" name="fullPhone" id="fullPhone">
+        Address <br>
+        <textarea name="address" rows="3" cols="30"></textarea><br><br>
+        Email:<input type="email" name="email"/><br><br>
+        Password:<input type="password" name="firstPassword"/><br><br>
+        Re-type password:<input type="password" name="secondPassword"/><br><br>
+        <button type="submit" >Submit</button> 
+    </form>
+    <script>
+        
+        function validatePass(event){
+            let initialPass = document.getElementsByName("firstPassword")[0].value;
+            let retypedPass = document.getElementsByName("secondPassword")[0].value;
+            if(initialPass !== retypedPass){
+                let m = document.getElementById("message");
+                m.style.display = "block";
+                m.innerHTML = "Passwords don't match";
+                event.preventDefault();
+                return false
+            }
+            let code = document.getElementsByName("countryCode")[0].value;
+            let phone = document.getElementsByName("phone")[0].value;
+
+            document.getElementById("fullPhone").value = code + phone;
+            return true;
+        };
+        
+        document.getElementById("regForm").onsubmit = validatePass;
+    </script>
+</body>
+</html>

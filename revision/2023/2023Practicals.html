@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        form { max-width: 400px; margin: auto; }
+        table{border: 1px solid black;}
+        td{border: 1px solid black;}
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form id="myForm" action="save_to_db.php" method="POST">
+
+        <table>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="zipcode">Zip Code:</label></td>
+                <td><input type="text" id="zipcode" name="zipcode"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="text" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label for="country">Country:</label></td>
+                <td>
+                    <select id="country" name="country">
+                        <option value="">[choose yours]</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="INDIA">INDIA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var zipcode = document.getElementById("zipcode").value;
+            var email = document.getElementById("email").value;
+            var country = document.getElementById("country").value;
+            
+            // Check if all fields are filled
+            if(name === "" || zipcode === "" || email === "" || country === "") {
+                alert("All fields must be filled!");
+                return false;
+            }
+            
+            // Email validation (standard format)
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if(!emailPattern.test(email)) {
+                alert("Please enter a valid email address!");
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Attach to form submit
+        document.getElementById("myForm").onsubmit = validateForm;
+    </script>
+
+</body>
+</html>

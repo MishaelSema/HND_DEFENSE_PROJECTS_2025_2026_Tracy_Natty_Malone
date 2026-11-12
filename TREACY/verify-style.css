@@ -1,0 +1,330 @@
+:root {
+    --primary-color: #D35400; /* Burnt Orange */
+    --accent-color: #E8A87C;  /* Lighter Orange/Peach */
+    --bg-cream: #FAF7F5;      /* Off-white/Cream */
+    --text-dark: #241611;     /* Dark Brown/Charcoal */
+    --text-muted: #6D5D57;
+    --white: #FFFFFF;
+    --border-light: #E8E2DE;
+    --shadow-soft: 0 10px 30px rgba(36, 22, 17, 0.05);
+
+    --font-heading: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.verification-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: var(--accent-color);
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Badge */
+.seller-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(211, 84, 0, 0.1);
+    color: var(--primary-color);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Titles */
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+h1 span {
+    color: var(--primary-color);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Progress Steps */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.progress-line {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--border-light);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.progress-active-line {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    height: 4px;
+    background: var(--primary-color);
+    z-index: 2;
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+
+.step-item {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--white);
+    border: 2px solid var(--border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-icon {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(211, 84, 0, 0.1);
+}
+
+.step-item.completed .step-icon {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+.step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.step-item.active .step-label {
+    color: var(--primary-color);
+}
+
+/* Card */
+.step-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Biometric Simulation */
+.biometric-visual {
+    width: 200px;
+    height: 200px;
+    background: #FFF4F0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.fingerprint-icon {
+    font-size: 80px;
+    color: var(--primary-color);
+}
+
+.scanning-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.status-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Forms */
+.form-content {
+    width: 100%;
+    display: none;
+}
+
+.form-content.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    background: #FDFDFD;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 40px;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.btn-back {
+    background: transparent;
+    color: var(--text-muted);
+}
+
+.btn-continue {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-continue:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-continue:disabled {
+    background: #E0E0E0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .step-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .step-label {
+        display: none;
+    }
+    .verification-container {
+        margin: 20px auto;
+    }
+}

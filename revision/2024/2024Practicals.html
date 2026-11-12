@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM paragraph style</title>
+</head>
+<body>
+    <p id="text">Javascript Exercise - w3resource</p>
+    <div>
+        <button id="jsstyle" onClick="js_content()">Style</button>
+    </div>
+    <script>
+        function js_content(){
+            var p = document.getElementById("text");
+            p.innerHTML = "SHUT THE FUCK UP";
+            p.style.color = "red";
+            let fSize = window.getComputedStyle(p).fontSize;
+            let num = parseInt(fSize) + 2;
+            p.style.fontSize = num + "px";
+        }
+    </script>
+</body>
+</html>

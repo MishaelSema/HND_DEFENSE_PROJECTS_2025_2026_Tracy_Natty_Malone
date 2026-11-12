@@ -1,0 +1,36 @@
+# Dependencies
+/vendor/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+*.log
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Uploads (except organized folders)
+uploads/*
+!uploads/.gitkeep
+provider/uploads/*
+!provider/uploads/.gitkeep
+admin/uploads/*
+!admin/uploads/.gitkeep
+
+# Cache
+/cache/
+tmp/
+
+# Error logs
+error_log
+php_errors.log

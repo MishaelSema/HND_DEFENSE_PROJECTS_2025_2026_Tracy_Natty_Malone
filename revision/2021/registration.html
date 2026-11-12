@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="register.php" method="POST">
+        <label for="FName">First Name:</label><input type="text" name="fName" id="FName" placeholder="TUBOU" required/><br><br>
+        <label for="Email">Email:</label><input type="email" name="email" id="Email" placeholder="ministry@gmail.com" required/><br><br>
+        <label for="Subject">Subject:</label><input type="text" name="subject" id="Subject" placeholder="programming" required/><br><br>
+        <label for="Country">Country:</label>
+        <select id="Country" name="country">
+            <option value="">Country</option>
+            <option value="CAMEROON">CAMEROON</option>
+            <option value="USA">USA</option>
+            <option value="GHANA">GHANA</option>
+        </select><br><br>
+        <label for="Comment">Comment:</label>
+        <textarea Id="Comment" name="comment" rows="4" cols="40" maxlength="240"></textarea><br><br>
+        <label for="Gender">Gender:</label>
+        <input type="radio" name="gender" value="male"/>M
+        <input type="radio" name="gender" value="female"/>F <br><br>
+        <label for="HDL">Highest Degree Level:</label>
+        <input type="checkbox" name="hdl[]" value="Post-Doc"/>Post-Doc
+        <input type="checkbox" name="hdl[]" value="Ph.D"/>Ph. D <br>
+        <input type="checkbox" name="hdl[]" value="Master/MS.c"/>Master/MS.c <br>
+        <input type="checkbox" name="hdl[]" value="Licence/BS.c"/>Licence/BS.c <br>
+        <input type="checkbox" name="hdl[]" value="Bacc/AL-GCE"/>Bacc/AL-GCE <br>
+        <button type="reset">reset</button> <br><br>
+        <button type="submit">Submit</button> <br><br>
+    </form>
+</body>
+</html>

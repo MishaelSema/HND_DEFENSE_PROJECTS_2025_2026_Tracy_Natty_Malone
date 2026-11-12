@@ -1,0 +1,12 @@
+CREATE DATABASE HND_STUDENTS;
+USE HND_STUDENTS;
+
+CREATE TABLE students(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    surname VARCHAR(100),
+    dob DATE,
+    pob VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(20)
+);
